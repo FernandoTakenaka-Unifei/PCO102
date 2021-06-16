@@ -99,8 +99,8 @@ fi
 # Skip unpacking if --redistribute parameter is defined.
 if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Confirm the Basexx .zip files and annotations .xls files are present.
-  train_zip_count=$(find "$eyepacs_dir" -maxdepth 1 -iname "train.zip.00*" | wc -l)
-  test_zip_count=$(find "$eyepacs_dir" -maxdepth 1 -iname "test.zip.00*" | wc -l)
+  train_zip_count=$(find "$eyepacs_dir" -maxdepth 1 -iname "train.z*" | wc -l)
+  test_zip_count=$(find "$eyepacs_dir" -maxdepth 1 -iname "test.z*" | wc -l)
   train_csv_zip=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv.zip" | wc -l)
 
   #if [ $train_zip_count -ne 5 ]; then
@@ -135,12 +135,12 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   fi
 
   # Unzip training set.
-  7z e "$eyepacs_dir/train.zip.001" -o"$pool_dir" || exit 1
+  7z e "$eyepacs_dir/train.z01" -o"$pool_dir" || exit 1
 
   echo "Unzip the data set (1/2)..."
 
   # Unzip test set.
-  7z e "$eyepacs_dir/test.zip.001" -o"$pool_dir" || exit 1
+  7z e "$eyepacs_dir/test.z01" -o"$pool_dir" || exit 1
 
   # Copy test labels from vendor to data set folder.
   cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
