@@ -3,11 +3,11 @@
 
 # Assumes that the data set resides in ./data/eyepacs.
 
-eyepacs_dir="./content/DLGP-DR-Diagnosis/data/eyepacs"
+eyepacs_dir="./content/PCO102/data/eyepacs"
 default_pool_dir="$eyepacs_dir/pool"
 default_shuffle_seed=42
 default_output_dir="$eyepacs_dir/bin2"
-grad_grades="./content/DLGP-DR-Diagnosis/vendor/eyepacs/eyepacs_gradability_grades.csv"
+grad_grades="./content/PCO102/vendor/eyepacs/eyepacs_gradability_grades.csv"
 
 # From [1].
 get_seeded_random()
@@ -103,15 +103,15 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   test_zip_count=$(find "$eyepacs_dir" -maxdepth 1 -iname "test.zip.00*" | wc -l)
   train_csv_zip=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv.zip" | wc -l)
 
-  if [ $train_zip_count -ne 5 ]; then
-    echo "$eyepacs_dir does not contain all train.zip files!"
-    exit 1
-  fi
+  #if [ $train_zip_count -ne 5 ]; then
+    #echo "$eyepacs_dir does not contain all train.zip files!"
+    #exit 1
+  #fi
 
-  if [ $test_zip_count -ne 7 ]; then
-    echo "$eyepacs_dir does not contain all test.zip files!"
-    exit 1
-  fi
+  #if [ $test_zip_count -ne 7 ]; then
+    #echo "$eyepacs_dir does not contain all test.zip files!"
+    #exit 1
+  #fi
 
   if [ $train_csv_zip -ne 1 ]; then
     echo "$eyepacs_dir does not contain trainLabels.csv.zip file!"
