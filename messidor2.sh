@@ -34,7 +34,7 @@ cp "$grades_path" "$messidor_dir/labels.csv"
 
 # Preprocess the data set and categorize the images by labels into
 #  subdirectories.
-python preprocess_messidor2.py --data_dir="$messidor_dir" || exit 1
+python PCO102/preprocess_messidor2.py --data_dir="$messidor_dir" || exit 1
 
 echo "Preparing data set..."
 mkdir -p "$output_dir/0" "$output_dir/1"
