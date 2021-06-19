@@ -4,9 +4,9 @@
 # Assumes that the data set resides in ./data/messidor.
 
 #messidor_download_url="http://webeye.ophth.uiowa.edu/abramoff/messidor-2.zip"
-messidor_dir="./content/PCO102/data/Messidor-2"
+messidor_dir="./PCO102/data/Messidor-2"
 #messidor_path="$messidor_dir/messidor-2.zip"
-grades_path="./content/PCO102/data/abramoff-messidor-2-refstandard-jul16.csv"
+grades_path="./PCO102/data/abramoff-messidor-2-refstandard-jul16.csv"
 default_output_dir="$messidor_dir/bin2"
 
 check_parameters()
