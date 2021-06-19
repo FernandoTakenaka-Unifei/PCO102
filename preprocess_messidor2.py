@@ -10,7 +10,7 @@ from lib.preprocess import resize_and_center_fundus
 
 parser = argparse.ArgumentParser(description='Preprocess Messidor-2 data set.')
 parser.add_argument("--data_dir", help="Directory where Messidor-2 resides.",
-                    default="data/messidor2")
+                    default="./PCO102/data/Messidor-2")
 
 args = parser.parse_args()
 data_dir = str(args.data_dir)
