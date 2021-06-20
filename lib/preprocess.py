@@ -161,6 +161,7 @@ def _resize_and_center_fundus_all(image_paths, save_path, diameter, verbosity):
             # Status-message.
             msg = "\r- Preprocessing image: {0:>6} / {1}".format(
                     i+1, num_images)
+            print(msg)
 
             # Print the status message.
             sys.stdout.write(msg)
