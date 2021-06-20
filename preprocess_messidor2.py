@@ -36,7 +36,7 @@ with open(labels, 'r') as f:
     for i, row in enumerate(reader):
         basename, grade = row
 
-        im_paths = glob(join(data_dir, "Messidor-2/{}*".format(basename)))
+        im_paths = glob(join(data_dir, "/{}*".format(basename)))
         print(join(data_dir, "Messidor-2/{}*".format(basename)))
         # Find contour of eye fundus in image, and scale
         #  diameter of fundus to 299 pixels and crop the edges.
