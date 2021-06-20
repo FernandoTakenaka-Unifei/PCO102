@@ -36,7 +36,7 @@ with open(labels, 'r') as f:
     for i, row in enumerate(reader):
         basename, grade = row
 
-        im_paths = glob(data_dir + "/{}*".format(basename))
+        im_paths = glob(data_dir + "{}*".format(basename))
         #im_paths = glob(join(data_dir, "/{}*".format(basename)))
         print("dir: " + data_dir)
         print("im_paths: " + data_dir + "/{}*".format(basename))
