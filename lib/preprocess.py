@@ -83,12 +83,12 @@ def _resize_and_center_fundus(image, diameter):
     """
     Helper function for scale normalizing image.
     """
-        print("Start")
+    print("Start")
     copy = image.copy()
 
     # Find largest contour in image.
     
-        print("_find_contours")
+    print("_find_contours")
     contours = _find_contours(image)
 
     # Return unless we have gotten some result contours.
@@ -106,7 +106,7 @@ def _resize_and_center_fundus(image, diameter):
     y_max = y_min + z
 
     # Crop the image.
-        print("copy")
+    print("copy")
     copy = copy[y_min:y_max, x_min:x_max]
 
     # Scale the image.
@@ -224,6 +224,7 @@ def resize_and_center_fundus(save_path=None, images_path=None, image_paths=None,
     save_path = os.path.abspath(save_path)
 
     if image_paths is not None:
+        print("_resize_and_center_fundus_all")
         return _resize_and_center_fundus_all(image_paths=image_paths,
                                              save_path=save_path,
                                              diameter=diameter,
