@@ -155,6 +155,7 @@ def _resize_and_center_fundus_all(image_paths, save_path, diameter, verbosity):
     success = 0
 
     # For each image in the specified directory.
+    print("_resize_and_center_fundus_all Start")
     for i, image_path in enumerate(image_paths):
         if verbosity > 0:
             # Status-message.
@@ -166,6 +167,7 @@ def _resize_and_center_fundus_all(image_paths, save_path, diameter, verbosity):
             sys.stdout.flush()
 
         try:
+            print("_resize_and_center_fundus_all try")
             # Load the image and clone it for output.
             image = cv2.imread(os.path.abspath(image_path), -1)
 
@@ -224,7 +226,7 @@ def resize_and_center_fundus(save_path=None, images_path=None, image_paths=None,
     save_path = os.path.abspath(save_path)
 
     if image_paths is not None:
-        print("_resize_and_center_fundus_all")
+        print("_resize_and_center_fundus_all resize_and_center_fundus")
         return _resize_and_center_fundus_all(image_paths=image_paths,
                                              save_path=save_path,
                                              diameter=diameter,
