@@ -155,7 +155,8 @@ def _resize_and_center_fundus_all(image_paths, save_path, diameter, verbosity):
     success = 0
 
     # For each image in the specified directory.
-    print("_resize_and_center_fundus_all Start")
+    print("image_paths:")
+    print(enumerate(image_paths))
     for i, image_path in enumerate(image_paths):
         if verbosity > 0:
             # Status-message.
