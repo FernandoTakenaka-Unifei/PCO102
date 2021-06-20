@@ -90,6 +90,7 @@ def _resize_and_center_fundus(image, diameter):
 
     # Return unless we have gotten some result contours.
     if contours is None:
+        print("No Contours")
         return None
 
     center, radius = contours
