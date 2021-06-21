@@ -138,8 +138,10 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Unzip labels.
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
   #7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
-  cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$pool_dir/."
-  cp ./PCO102/data/eyepacs/TrainLabelReduzido.csv "$pool_dir/."
+  #cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$pool_dir/."
+  #cp ./PCO102/data/eyepacs/TrainLabelReduzido.csv "$pool_dir/."
+  7z e "$eyepacs_dir/TrainLabelReduzido.csv.zip" -o"$pool_dir" || exit 1
+  7z e "$eyepacs_dir/TestLabelReduzido.csv.zip" -o"$pool_dir" || exit 1
 
   python ./PCO102/preprocess_eyepacs.py --data_dir="$pool_dir"
 
