@@ -101,7 +101,7 @@ fi
 if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Confirm the Basexx .zip files and annotations .xls files are present.
   #train_csv_zip=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv.zip" | wc -l)
-  train_csv=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv" | wc -l)
+  train_csv=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabelsReduzido.csv" | wc -l)
 
   #if [ $train_csv_zip -ne 1 ]; then
     #echo "$eyepacs_dir does not contain trainLabels.csv.zip file!"
