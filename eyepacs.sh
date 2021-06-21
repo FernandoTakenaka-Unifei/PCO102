@@ -133,7 +133,7 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
 
   # Copy test labels from vendor to data set folder.
   #cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
-  cp ./PAC102/data/eyepacs/TestLabelReduzido.csv "$eyepacs_dir/."
+  cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$eyepacs_dir/."
 
   # Unzip labels.
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
