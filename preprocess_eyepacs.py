@@ -15,8 +15,8 @@ parser.add_argument("--data_dir", help="Directory where EyePACS resides.",
 args = parser.parse_args()
 data_dir = str(args.data_dir)
 
-train_labels = join(data_dir, 'trainLabels.csv')
-test_labels = join(data_dir, 'testLabels.csv')
+train_labels = join(data_dir, 'TrainLabelReduzido.csv')
+test_labels = join(data_dir, 'TestLabelReduzido.csv')
 
 # Create directories for grades.
 [makedirs(join(data_dir, str(i))) for i in [0, 1, 2, 3, 4]
