@@ -17,6 +17,7 @@ data_dir = str(args.data_dir)
 
 train_labels = join(data_dir, 'TrainLabelReduzido.csv')
 test_labels = join(data_dir, 'TestLabelReduzido.csv')
+train = './PCO102/data/eyepacs/train resumido'
 
 # Create directories for grades.
 [makedirs(join(data_dir, str(i))) for i in [0, 1, 2, 3, 4]
@@ -38,7 +39,8 @@ for labels in [train_labels, test_labels]:
         for i, row in enumerate(reader):
             basename, grade = row[:2]
 
-            im_path = glob(join(data_dir, "{}*".format(basename)))[0]
+            #im_path = glob(join(data_dir, "{}*".format(basename)))[0]
+            im_path = glob(join(train, "{}*".format(basename)))[0]
 
             # Find contour of eye fundus in image, and scale
             #  diameter of fundus to 299 pixels and crop the edges.
