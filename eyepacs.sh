@@ -4,7 +4,8 @@
 # Assumes that the data set resides in ./data/eyepacs.
 
 eyepacs_dir="./PCO102/data/eyepacs"
-default_pool_dir="$eyepacs_dir/pool"
+#default_pool_dir="$eyepacs_dir/pool"
+default_pool_dir="$eyepacs_dir"
 default_shuffle_seed=42
 default_output_dir="$eyepacs_dir/bin2"
 grad_grades="./PCO102/vendor/eyepacs/eyepacs_gradability_grades.csv"
@@ -133,7 +134,7 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
 
   # Copy test labels from vendor to data set folder.
   #cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
-  cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$eyepacs_dir/."
+  #cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$eyepacs_dir/."
 
   # Unzip labels.
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
