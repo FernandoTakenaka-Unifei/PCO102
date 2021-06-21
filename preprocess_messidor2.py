@@ -59,7 +59,7 @@ with open(labels, 'r') as f:
         # Move the files from the tmp folder to the right grade folder.
         for j in range(2):
             new_filename = "{0}.00{1}.jpg".format(basename, j)
-            print(new_filename)
+            #print(new_filename)
             rename(join(tmp_path, new_filename),
                    join(data_dir, str(int(grade)), new_filename))
 
