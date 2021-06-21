@@ -227,7 +227,7 @@ def resize_and_center_fundus(save_path=None, images_path=None, image_paths=None,
 
     if image_paths is not None:
         print("save_path:" + save_path)
-        print("image_paths:" + image_paths)
+        print("image_paths:" + str(len(image_paths)))
         return _resize_and_center_fundus_all(image_paths=image_paths,
                                              save_path=save_path,
                                              diameter=diameter,
