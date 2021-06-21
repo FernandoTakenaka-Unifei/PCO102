@@ -83,12 +83,12 @@ def _resize_and_center_fundus(image, diameter):
     """
     Helper function for scale normalizing image.
     """
-    print("Start")
+    #print("Start")
     copy = image.copy()
 
     # Find largest contour in image.
     
-    print("_find_contours")
+    #print("_find_contours")
     contours = _find_contours(image)
 
     # Return unless we have gotten some result contours.
@@ -106,7 +106,7 @@ def _resize_and_center_fundus(image, diameter):
     y_max = y_min + z
 
     # Crop the image.
-    print("copy")
+    #print("copy")
     copy = copy[y_min:y_max, x_min:x_max]
 
     # Scale the image.
@@ -115,7 +115,7 @@ def _resize_and_center_fundus(image, diameter):
 
     # Add padding to image.
     
-    print("shape")
+    #print("shape")
     shape = copy.shape
 
     # Get the border shape size.
@@ -133,7 +133,7 @@ def _resize_and_center_fundus(image, diameter):
     border = [top, bottom, left, right]
 
     # Add border.
-    print("copyMakeBorder")
+    #print("copyMakeBorder")
     copy = cv2.copyMakeBorder(copy, *border,
                               borderType=cv2.BORDER_CONSTANT,
                               value=[0, 0, 0])
@@ -167,7 +167,7 @@ def _resize_and_center_fundus_all(image_paths, save_path, diameter, verbosity):
             sys.stdout.flush()
 
         try:
-            print("_resize_and_center_fundus_all try")
+            #print("_resize_and_center_fundus_all try")
             # Load the image and clone it for output.
             image = cv2.imread(os.path.abspath(image_path), -1)
 
