@@ -139,7 +139,7 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
   #7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
 
-  python ./POC102/preprocess_eyepacs.py --data_dir="$pool_dir"
+  python ./PCO102/preprocess_eyepacs.py --data_dir="$pool_dir"
 
   # Remove images in pool.
   find "$pool_dir" -maxdepth 1 -iname "*.jpeg" -delete
