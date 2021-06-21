@@ -99,12 +99,13 @@ fi
 # Skip unpacking if --redistribute parameter is defined.
 if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Confirm the Basexx .zip files and annotations .xls files are present.
-  train_csv_zip=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv.zip" | wc -l)
+  #train_csv_zip=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv.zip" | wc -l)
+  train_csv=$(find "$eyepacs_dir" -maxdepth 1 -iname "trainLabels.csv" | wc -l)
 
-  if [ $train_csv_zip -ne 1 ]; then
-    echo "$eyepacs_dir does not contain trainLabels.csv.zip file!"
-    exit 1
-  fi
+  #if [ $train_csv_zip -ne 1 ]; then
+    #echo "$eyepacs_dir does not contain trainLabels.csv.zip file!"
+    #exit 1
+  #fi
 
   # Test preprocess script.
   error=$(python preprocess_eyepacs.py -h 2>&1 1>/dev/null)
@@ -113,7 +114,7 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
     exit 1
   fi
 
-  echo "Unzip the data set (0/2)..."
+  #echo "Unzip the data set (0/2)..."
 
   # Check if p7zip is installed.
   dpkg -l | grep p7zip-full
@@ -123,19 +124,20 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   fi
 
   # Unzip training set.
-  7z e "$eyepacs_dir/train.z01" -o"$pool_dir" || exit 1
+  #7z e "$eyepacs_dir/train.z01" -o"$pool_dir" || exit 1
 
-  echo "Unzip the data set (1/2)..."
+  #echo "Unzip the data set (1/2)..."
 
   # Unzip test set.
-  7z e "$eyepacs_dir/test.z01" -o"$pool_dir" || exit 1
+  #7z e "$eyepacs_dir/test.z01" -o"$pool_dir" || exit 1
 
   # Copy test labels from vendor to data set folder.
-  cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
+  #cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
+  cp ./PAC102/data/testLabels.csv "$eyepacs_dir/."
 
   # Unzip labels.
-  7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
-  7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
+  #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
+  #7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
 
   python preprocess_eyepacs.py --data_dir="$pool_dir"
 
