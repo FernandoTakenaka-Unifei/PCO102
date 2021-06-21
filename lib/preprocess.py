@@ -138,7 +138,7 @@ def _resize_and_center_fundus(image, diameter):
                               borderType=cv2.BORDER_CONSTANT,
                               value=[0, 0, 0])
     # Return the image.
-    print(copy)
+    #print(copy)
     return copy
 
 
@@ -226,7 +226,7 @@ def resize_and_center_fundus(save_path=None, images_path=None, image_paths=None,
     save_path = os.path.abspath(save_path)
 
     #print("save_path:" + save_path)
-    print("image_paths:" + str(len(image_paths)))
+    #print("image_paths:" + str(len(image_paths)))
     #print("images_path:" + str(len(images_path)))
     if image_paths is not None:
         return _resize_and_center_fundus_all(image_paths=image_paths,
