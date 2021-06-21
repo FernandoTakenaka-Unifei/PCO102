@@ -108,7 +108,7 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   #fi
 
   # Test preprocess script.
-  error=$(python preprocess_eyepacs.py -h 2>&1 1>/dev/null)
+  error=$(python ./PCO102/preprocess_eyepacs.py -h 2>&1 1>/dev/null)
   if [ $? -ne 0 ]; then
     echo "$error" >&2
     exit 1
