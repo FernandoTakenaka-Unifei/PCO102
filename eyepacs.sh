@@ -97,13 +97,6 @@ if ls "$output_dir" >/dev/null 2>&1; then
   exit 1
 fi
 
-if exists(default_pool_dir):
-    rmtree(default_pool_dir)
-makedirs(default_pool_dir)
-
-if exists(default_output_dir):
-    rmtree(default_output_dir)
-makedirs(default_output_dir)
 # Skip unpacking if --redistribute parameter is defined.
 if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Confirm the Basexx .zip files and annotations .xls files are present.
