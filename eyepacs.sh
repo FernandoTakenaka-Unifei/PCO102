@@ -133,13 +133,13 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
 
   # Copy test labels from vendor to data set folder.
   #cp vendor/eyepacs/testLabels.csv.zip "$eyepacs_dir/."
-  cp ./PAC102/data/testLabels.csv "$eyepacs_dir/."
+  cp ./PAC102/data/eyepacs/testReduzido.csv "$eyepacs_dir/."
 
   # Unzip labels.
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
   #7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
 
-  python preprocess_eyepacs.py --data_dir="$pool_dir"
+  python ./PAC102/preprocess_eyepacs.py --data_dir="$pool_dir"
 
   # Remove images in pool.
   find "$pool_dir" -maxdepth 1 -iname "*.jpeg" -delete
