@@ -126,7 +126,6 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
 
   # Unzip training set.
   #7z e "$eyepacs_dir/train.z01" -o"$pool_dir" || exit 1
-
   #echo "Unzip the data set (1/2)..."
 
   # Unzip test set.
@@ -139,6 +138,8 @@ if ! echo "$@" | grep -c -- "--redistribute" >/dev/null; then
   # Unzip labels.
   #7z e "$eyepacs_dir/trainLabels.csv.zip" -o"$pool_dir" || exit 1
   #7z e "$eyepacs_dir/testLabels.csv.zip" -o"$pool_dir" || exit 1
+  cp ./PCO102/data/eyepacs/TestLabelReduzido.csv "$pool_dir/."
+  cp ./PCO102/data/eyepacs/TrainLabelReduzido.csv "$pool_dir/."
 
   python ./PCO102/preprocess_eyepacs.py --data_dir="$pool_dir"
 
