@@ -39,7 +39,7 @@ with open(labels, 'r') as f:
         #im_paths = glob(data_dir + "{}*".format(basename))
 
         #im_paths = data_dir + "{}*".format(basename)
-        im_paths = glob(join(data_dir, "/{}*".format(basename)))
+        im_paths = glob(join(data_dir, "{}*".format(basename)))
         print("im_paths: " + str(len(im_paths)))
         # Find contour of eye fundus in image, and scale
         #  diameter of fundus to 299 pixels and crop the edges.
