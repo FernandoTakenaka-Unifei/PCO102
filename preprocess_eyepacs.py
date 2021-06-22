@@ -60,7 +60,7 @@ for labels in [train_labels, test_labels]:
             new_filename = "{0}.jpg".format(basename)
 
             # Move the file from the tmp folder to the right grade folder.
-            msg = "\r- TEST:" + str(grade)
+            msg = "\r- TEST:" + grade + "\r"
             sys.stdout.write(msg)
             sys.stdout.flush()
             rename(join(tmp_path, new_filename),
