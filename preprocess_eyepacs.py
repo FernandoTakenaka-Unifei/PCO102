@@ -17,7 +17,7 @@ data_dir = str(args.data_dir)
 
 train_labels = join(data_dir, 'TrainLabelReduzido.csv')
 test_labels = join(data_dir, 'TestLabelReduzido.csv')
-train = './PCO102/data/eyepacs/train resumido'
+train = './PCO102/data/eyepacs'
 
 # Create directories for grades.
 [makedirs(join(data_dir, str(i))) for i in [0, 1, 2, 3, 4]
