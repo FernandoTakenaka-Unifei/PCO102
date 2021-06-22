@@ -30,7 +30,6 @@ if exists(tmp_path):
 makedirs(tmp_path)
 
 failed_images = []
-print(data_dir)
 for labels in [train_labels, test_labels]:
     with open(labels, 'r') as f:
         reader = csv.reader(f, delimiter=',')
@@ -40,6 +39,7 @@ for labels in [train_labels, test_labels]:
             basename, grade = row[:2]
 
             #im_path = glob(join(data_dir, "{}*".format(basename)))[0]
+            print(join(train, "{}*".format(basename)))
             im_path = glob(join(train, "{}*".format(basename)))[0]
 
             # Find contour of eye fundus in image, and scale
