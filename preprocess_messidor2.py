@@ -36,11 +36,7 @@ with open(labels, 'r') as f:
     for i, row in enumerate(reader):
         basename, grade = row
         
-        #im_paths = glob(data_dir + "{}*".format(basename))
-
-        #im_paths = data_dir + "{}*".format(basename)
         im_paths = glob(join(data_dir, "{}*".format(basename)))
-        #print("im_paths: " + str(len(im_paths)))
         # Find contour of eye fundus in image, and scale
         #  diameter of fundus to 299 pixels and crop the edges.
         res = resize_and_center_fundus(save_path=tmp_path,
@@ -59,7 +55,6 @@ with open(labels, 'r') as f:
         # Move the files from the tmp folder to the right grade folder.
         for j in range(2):
             new_filename = "{0}.00{1}.jpg".format(basename, j)
-            #print(new_filename)
             rename(join(tmp_path, new_filename),
                    join(data_dir, str(int(grade)), new_filename))
 
