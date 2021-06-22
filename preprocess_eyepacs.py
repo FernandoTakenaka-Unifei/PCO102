@@ -61,8 +61,7 @@ for labels in [train_labels, test_labels]:
 
             # Move the file from the tmp folder to the right grade folder.
             msg = "\r- TEST:" + grade + "\r"
-            sys.stdout.write(msg)
-            sys.stdout.flush()
+            print(msg)
             rename(join(tmp_path, new_filename),
                    join(data_dir, str(int(grade)), new_filename))
 
