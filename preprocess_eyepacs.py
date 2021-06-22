@@ -17,7 +17,8 @@ data_dir = str(args.data_dir)
 
 train_labels = join(data_dir, 'TrainLabelReduzido.csv')
 test_labels = join(data_dir, 'TestLabelReduzido.csv')
-train = './PCO102/data/eyepacs'
+train = './PCO102/data/eyepacs/train resumido'
+test = './PCO102/data/eyepacs/test resumido'
 
 # Create directories for grades.
 [makedirs(join(data_dir, str(i))) for i in [0, 1, 2, 3, 4]
@@ -30,7 +31,7 @@ if exists(tmp_path):
 makedirs(tmp_path)
 
 failed_images = []
-for labels in [train_labels, test_labels]:
+for labels in [train_labels]:
     with open(labels, 'r') as f:
         reader = csv.reader(f, delimiter=',')
         next(reader)
@@ -40,6 +41,40 @@ for labels in [train_labels, test_labels]:
 
             #im_path = glob(join(data_dir, "{}*".format(basename)))[0]
             print(join(train, "{}*".format(basename)))
+            im_path = glob(join(train, "{}*".format(basename)))[0]
+
+            # Find contour of eye fundus in image, and scale
+            #  diameter of fundus to 299 pixels and crop the edges.
+            res = resize_and_center_fundus(save_path=tmp_path,
+                                           image_path=im_path,
+                                           diameter=299, verbosity=0)
+
+            # Status message.
+            msg = "\r- Preprocessing image: {0:>7}".format(i+1)
+            sys.stdout.write(msg)
+            sys.stdout.flush()
+
+            if res != 1:
+                failed_images.append(basename)
+                continue
+
+            new_filename = "{0}.jpg".format(basename)
+
+            # Move the file from the tmp folder to the right grade folder.
+            msg = "\r- TEST:" + grade + "\r"
+            print(msg)
+            rename(join(tmp_path, new_filename),
+                   join(data_dir, str(int(grade)), new_filename))
+for labels in [test_labels]:
+    with open(labels, 'r') as f:
+        reader = csv.reader(f, delimiter=',')
+        next(reader)
+
+        for i, row in enumerate(reader):
+            basename, grade = row[:2]
+
+            #im_path = glob(join(data_dir, "{}*".format(basename)))[0]
+            print(join(test, "{}*".format(basename)))
             im_path = glob(join(train, "{}*".format(basename)))[0]
 
             # Find contour of eye fundus in image, and scale
