@@ -73,8 +73,8 @@ for labels in [test_labels]:
             basename, grade = row[:2]
 
             #im_path = glob(join(data_dir, "{}*".format(basename)))[0]
-            print(glob(join(train, "{}*".format(basename))))
-            im_path = glob(join(train, "{}*".format(basename)))[0]
+            print(glob(join(test, "{}*".format(basename))))
+            im_path = glob(join(test, "{}*".format(basename)))[0]
 
             # Find contour of eye fundus in image, and scale
             #  diameter of fundus to 299 pixels and crop the edges.
